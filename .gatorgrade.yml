@@ -1,0 +1,99 @@
+# EVENTS
+- description: Ground tilled for FlowerBed
+  check: MatchCommandFragment
+  options:
+    fragment: "true"
+    count: 1
+    exact: true
+    command: jq .tillaged .flags
+# TODOs
+- Luumba.py:
+  - description: No TODO markers left in Luumba.py
+    check: MatchFileFragment
+    options:
+      fragment: "TODO"
+      count: 0
+      exact: true
+- yard/FlowerBed.py:
+  - description: No TODO markers left in FlowerBed.py
+    check: MatchFileFragment
+    options:
+      fragment: "TODO"
+      count: 0
+      exact: true
+- yard/Tiller.py:
+  - description: No TODO markers left in Tiller.py
+    check: MatchFileFragment
+    options:
+      fragment: "TODO"
+      count: 0
+      exact: true
+- yard/treehouse/reflection.md:
+  - description: No TODO markers left in reflection.md
+    check: MatchFileFragment
+    options:
+      fragment: "TODO"
+      count: 0
+      exact: true
+# PROOF OF LIFE
+- yard/treehouse/reflection.md:
+  - description: Treehouse successfully constructed
+    check: ConfirmFileExists
+- yard/flowerbed.png:
+  - description: Flower bed successfully planted
+    check: ConfirmFileExists
+# REFLECTION
+- yard/treehouse/reflection.md:
+  - description: All questions answered in reflection.md
+    check: CountFileParagraphs
+    options:
+      count: 4
+- yard/treehouse/reflection.md:
+  - description: Reflection contains at least 250 words
+    check: CountFileWords
+    options:
+      count: 250
+# COMMENT COPS
+- Luumba.py:
+  - description: Luumba.py has at least 10 single-line comments
+    check: CountSingleLineComments
+    options:
+      language: Python
+      count: 10
+- yard/Tiller.py:
+  - description: Tiller.py has at least 10 single-line comments
+    check: CountSingleLineComments
+    options:
+      language: Python
+      count: 10
+- yard/FlowerBed.py:
+  - description: FlowerBed.py has at least 10 single-line comments
+    check: CountSingleLineComments
+    options:
+      language: Python
+      count: 10
+# LEARNING OBJECTIVES
+- Luumba.py:
+  - description: Luumba.py creates three functions for cut shapes
+    check: MatchFileRegex
+    options:
+      regex: "def\\s[a-z0-9_]+\\("
+      count: 4
+- Luumba.py:
+  - description: Functions in Luumba.py return values
+    check: MatchFileRegex
+    options:
+      regex: "return\\s[a-z0-9_]+"
+      count: 3
+- yard/Tiller.py:
+  - description: Tiller.py creates enough functions to complete its work
+    check: MatchFileRegex
+    options:
+      regex: "def\\s[a-z0-9_]+\\("
+      count: 5
+- yard/Tiller.py:
+  - description: Function in Tiller.py return values
+    check: MatchFileRegex
+    options:
+      regex: "return\\s[a-z0-9_]+"
+      count: 2
